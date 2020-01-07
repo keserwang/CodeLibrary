@@ -1536,6 +1536,7 @@
     <Content Include="FrondEndLib\jQuery\jquery-3.1.1.min.js" />
     <Content Include="FrondEndLib\jQuery\jquery-3.2.1.min.js" />
     <Content Include="FrondEndLib\jQuery\jquery-3.3.1.min.js" />
+    <None Include="FrondEndLib\jQuery\jquery-3.4.1.intellisense.js" />
     <Content Include="FrondEndLib\jQuery\jquery-3.4.1.min.js" />
     <Content Include="FrondEndLib\jQuery\jquery-latest.min.js" />
     <Content Include="FrondEndLib\jQuery\jquery-migrate-1.4.1.min.js" />
@@ -1678,6 +1679,9 @@
     <Content Include="FrondEndLib\Select2\4.0.12\js\select2.full.min.js" />
     <Content Include="FrondEndLib\Select2\4.0.12\js\select2.js" />
     <Content Include="FrondEndLib\Select2\4.0.12\js\select2.min.js" />
+    <Content Include="FrondEndLib\Soetek\css\pager.css" />
+    <Content Include="FrondEndLib\Soetek\css\soetek-ui.css" />
+    <Content Include="FrondEndLib\Soetek\css\table.css" />
     <Content Include="FrondEndLib\SPServices\2014.02\jquery.SPServices Intellisense.js" />
     <Content Include="FrondEndLib\SPServices\2014.02\jquery.SPServices.js" />
     <Content Include="FrondEndLib\SPServices\2014.02\jquery.SPServices.min.js" />
