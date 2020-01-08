@@ -1123,6 +1123,9 @@
     <Content Include="FrondEndLib\DateRangePicker\3.0.5\Custom\DateRangePickerCustom.js" />
     <Content Include="FrondEndLib\DateRangePicker\3.0.5\daterangepicker.css" />
     <Content Include="FrondEndLib\DateRangePicker\3.0.5\daterangepicker.js" />
+    <Content Include="FrondEndLib\FontAwesome\4.7.0\css\font-awesome.css" />
+    <Content Include="FrondEndLib\FontAwesome\4.7.0\css\font-awesome.min.css" />
+    <Content Include="FrondEndLib\FontAwesome\4.7.0\fonts\fontawesome-webfont.svg" />
     <Content Include="FrondEndLib\FontAwesome\5.12.0\css\all.css" />
     <Content Include="FrondEndLib\FontAwesome\5.12.0\css\all.min.css" />
     <Content Include="FrondEndLib\FontAwesome\5.12.0\css\brands.css" />
@@ -3874,6 +3877,13 @@
     <Content Include="FrondEndLib\FontAwesome\5.12.0\scss\_shims.scss" />
     <Content Include="FrondEndLib\FontAwesome\5.12.0\scss\_stacked.scss" />
     <Content Include="FrondEndLib\FontAwesome\5.12.0\scss\_variables.scss" />
+    <Content Include="FrondEndLib\FontAwesome\4.7.0\css\font-awesome.css.map" />
+    <Content Include="FrondEndLib\FontAwesome\4.7.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="FrondEndLib\FontAwesome\4.7.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="FrondEndLib\FontAwesome\4.7.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="FrondEndLib\FontAwesome\4.7.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="FrondEndLib\FontAwesome\4.7.0\fonts\FontAwesome.otf" />
+    <Content Include="FrondEndLib\FontAwesome\4.7.0\README.md" />
     <None Include="FrondEndLib\jQuery\jquery-1.9.0.intellisense.js" />
     <Content Include="FrondEndLib\jQuery\jquery-1.9.0.js" />
     <Content Include="FrondEndLib\jQuery\jquery-1.9.0.min.js" />
