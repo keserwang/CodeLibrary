@@ -1131,7 +1131,6 @@
     <Content Include="FrondEndLib\FontAwesome\5.12.0\css\fontawesome.min.css" />
     <Content Include="FrondEndLib\FontAwesome\5.12.0\css\regular.css" />
     <Content Include="FrondEndLib\FontAwesome\5.12.0\css\regular.min.css" />
-    <Content Include="FrondEndLib\FontAwesome\5.12.0\css\Site.css" />
     <Content Include="FrondEndLib\FontAwesome\5.12.0\css\solid.css" />
     <Content Include="FrondEndLib\FontAwesome\5.12.0\css\solid.min.css" />
     <Content Include="FrondEndLib\FontAwesome\5.12.0\css\svg-with-js.css" />
