@@ -4043,6 +4043,11 @@
     <Content Include="FrondEndLib\SPServices\2014.02\jquery.SPServices.js" />
     <Content Include="FrondEndLib\SPServices\2014.02\jquery.SPServices.min.js" />
     <Content Include="FrondEndLib\SPServices\2014.02\license.txt" />
+    <Content Include="FrondEndLib\XDSoft.net\DateTimePicker\2.5.21\jquery.datetimepicker.css" />
+    <Content Include="FrondEndLib\XDSoft.net\DateTimePicker\2.5.21\jquery.datetimepicker.full.js" />
+    <Content Include="FrondEndLib\XDSoft.net\DateTimePicker\2.5.21\jquery.datetimepicker.full.min.js" />
+    <Content Include="FrondEndLib\XDSoft.net\DateTimePicker\2.5.21\jquery.datetimepicker.min.css" />
+    <Content Include="FrondEndLib\XDSoft.net\DateTimePicker\MIT-LICENSE.txt" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
