@@ -13,6 +13,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DotNetFramework", "DotNetFr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaticWebApp", "StaticWebApp\StaticWebApp.csproj", "{5B3BDD6B-413F-4B40-990F-05CC372D3494}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.0", "2.0", "{4EFB6BAA-3E2C-4FB6-B17B-ED5F8AFD3139}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.1", "2.1", "{9DE46707-08A9-43FF-ACE0-A9FFDE5F718F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +33,8 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{5B3BDD6B-413F-4B40-990F-05CC372D3494} = {7B2CC285-8167-4ACF-8DE9-3065A4B19FDD}
+		{4EFB6BAA-3E2C-4FB6-B17B-ED5F8AFD3139} = {01CC477D-DB1B-480B-B149-AFF1CCC70EB6}
+		{9DE46707-08A9-43FF-ACE0-A9FFDE5F718F} = {01CC477D-DB1B-480B-B149-AFF1CCC70EB6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B3D5AACD-C56E-4B17-B399-77380A291EF9}
