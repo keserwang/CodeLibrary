@@ -3884,8 +3884,6 @@
     <Content Include="FrondEndLib\FontAwesome\4.7.0\fonts\fontawesome-webfont.woff2" />
     <Content Include="FrondEndLib\FontAwesome\4.7.0\fonts\FontAwesome.otf" />
     <Content Include="FrondEndLib\FontAwesome\4.7.0\README.md" />
-    <None Include="FrondEndLib\jQuery\jquery-1.9.0.intellisense.js" />
-    <Content Include="FrondEndLib\jQuery\jquery-1.9.0.js" />
     <Content Include="FrondEndLib\jQuery\jquery-1.9.0.min.js" />
     <Content Include="FrondEndLib\jQuery\jquery-1.9.1.min.js" />
     <Content Include="FrondEndLib\jQuery\jquery-2.1.4.min.js" />
@@ -3894,6 +3892,7 @@
     <Content Include="FrondEndLib\jQuery\jquery-3.2.1.min.js" />
     <Content Include="FrondEndLib\jQuery\jquery-3.3.1.min.js" />
     <None Include="FrondEndLib\jQuery\jquery-3.4.1.intellisense.js" />
+    <Content Include="FrondEndLib\jQuery\jquery-3.4.1.js" />
     <Content Include="FrondEndLib\jQuery\jquery-3.4.1.min.js" />
     <Content Include="FrondEndLib\jQuery\jquery-latest.min.js" />
     <Content Include="FrondEndLib\jQuery\jquery-migrate-1.4.1.min.js" />
