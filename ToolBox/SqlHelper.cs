@@ -14,8 +14,11 @@ namespace ToolBox
         /// <param name="commandType"></param>
         /// <param name="parameters"></param>
         /// <returns></returns>
-        public static Int32 ExecuteNonQuery(String connectionString, String commandText,
-            CommandType commandType = CommandType.Text, params SqlParameter[] parameters)
+        public static Int32 ExecuteNonQuery(
+            string connectionString,
+            string commandText,
+            CommandType commandType = CommandType.Text,
+            params SqlParameter[] parameters)
         {
             using (SqlConnection sqlCnt = new SqlConnection(connectionString))
             using (SqlCommand cmd = new SqlCommand(commandText, sqlCnt))
@@ -39,8 +42,11 @@ namespace ToolBox
         /// <param name="commandType"></param>
         /// <param name="parameters"></param>
         /// <returns></returns>
-        public static Object ExecuteScalar(String connectionString, String commandText,
-            CommandType commandType = CommandType.Text, params SqlParameter[] parameters)
+        public static Object ExecuteScalar(
+            string connectionString,
+            string commandText,
+            CommandType commandType = CommandType.Text,
+            params SqlParameter[] parameters)
         {
             using (SqlConnection sqlCnt = new SqlConnection(connectionString))
             using (SqlCommand cmd = new SqlCommand(commandText, sqlCnt))
@@ -64,8 +70,11 @@ namespace ToolBox
         /// <param name="commandType"></param>
         /// <param name="parameters"></param>
         /// <returns></returns>
-        public static SqlDataReader ExecuteReader(String connectionString, String commandText,
-            CommandType commandType = CommandType.Text, params SqlParameter[] parameters)
+        public static SqlDataReader ExecuteReader(
+            string connectionString,
+            string commandText,
+            CommandType commandType = CommandType.Text,
+            params SqlParameter[] parameters)
         {
             SqlConnection sqlCnt = new SqlConnection(connectionString);
             using (SqlCommand cmd = new SqlCommand(commandText, sqlCnt))
@@ -78,6 +87,52 @@ namespace ToolBox
 
                 // When using CommandBehavior.CloseConnection, the connection will be closed when the IDataReader is closed.  
                 return cmd.ExecuteReader(CommandBehavior.CloseConnection);
+            }
+        }
+
+        public static DataTable Select(
+            string connectionString,
+            string commandText,
+            CommandType commandType = CommandType.Text,
+            params SqlParameter[] parameters)
+        {
+            DataTable dt = new DataTable();
+
+            using (SqlConnection sqlCnt = new SqlConnection(connectionString))
+            using (SqlDataAdapter sqlDa = new SqlDataAdapter(commandText, sqlCnt))
+            {
+                sqlDa.SelectCommand.CommandType = commandType;
+                sqlDa.SelectCommand.Parameters.AddRange(parameters);
+
+                if (sqlCnt.State != System.Data.ConnectionState.Open)
+                    sqlCnt.Open();
+
+                sqlDa.Fill(dt);
+
+                return dt;
+            }
+        }
+
+        public static DataSet MultiSelect(
+            string connectionString,
+            string commandText,
+            CommandType commandType = CommandType.Text,
+            params SqlParameter[] parameters)
+        {
+            DataSet ds = new DataSet();
+
+            using (SqlConnection sqlCnt = new SqlConnection(connectionString))
+            using (SqlDataAdapter sqlDa = new SqlDataAdapter(commandText, sqlCnt))
+            {
+                sqlDa.SelectCommand.CommandType = commandType;
+                sqlDa.SelectCommand.Parameters.AddRange(parameters);
+            
+                if (sqlCnt.State != System.Data.ConnectionState.Open)
+                    sqlCnt.Open();
+
+                sqlDa.Fill(ds);
+
+                return ds;
             }
         }
     }
