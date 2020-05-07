@@ -23,7 +23,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToolBox", "ToolBox\ToolBox.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetFrameworkToolBox", "DotNetFrameworkToolBox\DotNetFrameworkToolBox.csproj", "{EBD89ED8-0B91-4AA2-A6F8-E84D27F3067C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidationAttributeLib", "ValidationAttributeLib\ValidationAttributeLib.csproj", "{BFB47E0E-5164-48FD-B3EF-BE3B12B8FBF0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ValidationAttributeLib", "ValidationAttributeLib\ValidationAttributeLib.csproj", "{BFB47E0E-5164-48FD-B3EF-BE3B12B8FBF0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocalizationResource", "LocalizationResource\LocalizationResource.csproj", "{E89738E1-6449-4386-8C22-5E8B98ECB71C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,6 +67,14 @@ Global
 		{BFB47E0E-5164-48FD-B3EF-BE3B12B8FBF0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BFB47E0E-5164-48FD-B3EF-BE3B12B8FBF0}.Release|x86.ActiveCfg = Release|Any CPU
 		{BFB47E0E-5164-48FD-B3EF-BE3B12B8FBF0}.Release|x86.Build.0 = Release|Any CPU
+		{E89738E1-6449-4386-8C22-5E8B98ECB71C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E89738E1-6449-4386-8C22-5E8B98ECB71C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E89738E1-6449-4386-8C22-5E8B98ECB71C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E89738E1-6449-4386-8C22-5E8B98ECB71C}.Debug|x86.Build.0 = Debug|Any CPU
+		{E89738E1-6449-4386-8C22-5E8B98ECB71C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E89738E1-6449-4386-8C22-5E8B98ECB71C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E89738E1-6449-4386-8C22-5E8B98ECB71C}.Release|x86.ActiveCfg = Release|Any CPU
+		{E89738E1-6449-4386-8C22-5E8B98ECB71C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -77,8 +87,10 @@ Global
 		{2C960833-F8F7-48F4-98FD-4B3F54A8696C} = {4EFB6BAA-3E2C-4FB6-B17B-ED5F8AFD3139}
 		{EBD89ED8-0B91-4AA2-A6F8-E84D27F3067C} = {F8C14F17-ADD7-4B22-83EE-F177FEC5E0FA}
 		{BFB47E0E-5164-48FD-B3EF-BE3B12B8FBF0} = {4EFB6BAA-3E2C-4FB6-B17B-ED5F8AFD3139}
+		{E89738E1-6449-4386-8C22-5E8B98ECB71C} = {4EFB6BAA-3E2C-4FB6-B17B-ED5F8AFD3139}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B3D5AACD-C56E-4B17-B399-77380A291EF9}
+		RESX_AutoCreateNewLanguageFiles = True
 	EndGlobalSection
 EndGlobal
