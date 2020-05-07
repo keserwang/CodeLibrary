@@ -1,1 +1,0 @@
-intellisense.annotate(jQuery,{SPServices:function(){}});
