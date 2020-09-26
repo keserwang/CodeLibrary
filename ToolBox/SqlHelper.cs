@@ -20,16 +20,16 @@ namespace ToolBox
             CommandType commandType = CommandType.Text,
             params SqlParameter[] parameters)
         {
-            using (SqlConnection sqlCnt = new SqlConnection(connectionString))
-            using (SqlCommand cmd = new SqlCommand(commandText, sqlCnt))
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(commandText, connection))
             {
-                cmd.CommandType = commandType;
-                cmd.Parameters.AddRange(parameters);
+                command.CommandType = commandType;
+                command.Parameters.AddRange(parameters);
 
-                if (sqlCnt.State != System.Data.ConnectionState.Open)
-                    sqlCnt.Open();
+                if (connection.State != System.Data.ConnectionState.Open)
+                    connection.Open();
 
-                return cmd.ExecuteNonQuery();
+                return command.ExecuteNonQuery();
             }
         }
 
@@ -48,16 +48,16 @@ namespace ToolBox
             CommandType commandType = CommandType.Text,
             params SqlParameter[] parameters)
         {
-            using (SqlConnection sqlCnt = new SqlConnection(connectionString))
-            using (SqlCommand cmd = new SqlCommand(commandText, sqlCnt))
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(commandText, connection))
             {
-                cmd.CommandType = commandType;
-                cmd.Parameters.AddRange(parameters);
+                command.CommandType = commandType;
+                command.Parameters.AddRange(parameters);
 
-                if (sqlCnt.State != System.Data.ConnectionState.Open)
-                    sqlCnt.Open();
+                if (connection.State != System.Data.ConnectionState.Open)
+                    connection.Open();
 
-                return cmd.ExecuteScalar();
+                return command.ExecuteScalar();
             }
         }
 
@@ -76,17 +76,17 @@ namespace ToolBox
             CommandType commandType = CommandType.Text,
             params SqlParameter[] parameters)
         {
-            SqlConnection sqlCnt = new SqlConnection(connectionString);
-            using (SqlCommand cmd = new SqlCommand(commandText, sqlCnt))
+            SqlConnection connection = new SqlConnection(connectionString);
+            using (SqlCommand command = new SqlCommand(commandText, connection))
             {
-                cmd.CommandType = commandType;
-                cmd.Parameters.AddRange(parameters);
+                command.CommandType = commandType;
+                command.Parameters.AddRange(parameters);
 
-                if (sqlCnt.State != System.Data.ConnectionState.Open)
-                    sqlCnt.Open();
+                if (connection.State != System.Data.ConnectionState.Open)
+                    connection.Open();
 
                 // When using CommandBehavior.CloseConnection, the connection will be closed when the IDataReader is closed.  
-                return cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                return command.ExecuteReader(CommandBehavior.CloseConnection);
             }
         }
 
@@ -98,16 +98,16 @@ namespace ToolBox
         {
             DataTable dt = new DataTable();
 
-            using (SqlConnection sqlCnt = new SqlConnection(connectionString))
-            using (SqlDataAdapter sqlDa = new SqlDataAdapter(commandText, sqlCnt))
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlDataAdapter dataAdapter = new SqlDataAdapter(commandText, connection))
             {
-                sqlDa.SelectCommand.CommandType = commandType;
-                sqlDa.SelectCommand.Parameters.AddRange(parameters);
+                dataAdapter.SelectCommand.CommandType = commandType;
+                dataAdapter.SelectCommand.Parameters.AddRange(parameters);
 
-                if (sqlCnt.State != System.Data.ConnectionState.Open)
-                    sqlCnt.Open();
+                if (connection.State != System.Data.ConnectionState.Open)
+                    connection.Open();
 
-                sqlDa.Fill(dt);
+                dataAdapter.Fill(dt);
 
                 return dt;
             }
@@ -121,16 +121,16 @@ namespace ToolBox
         {
             DataSet ds = new DataSet();
 
-            using (SqlConnection sqlCnt = new SqlConnection(connectionString))
-            using (SqlDataAdapter sqlDa = new SqlDataAdapter(commandText, sqlCnt))
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlDataAdapter dataAdapter = new SqlDataAdapter(commandText, connection))
             {
-                sqlDa.SelectCommand.CommandType = commandType;
-                sqlDa.SelectCommand.Parameters.AddRange(parameters);
+                dataAdapter.SelectCommand.CommandType = commandType;
+                dataAdapter.SelectCommand.Parameters.AddRange(parameters);
             
-                if (sqlCnt.State != System.Data.ConnectionState.Open)
-                    sqlCnt.Open();
+                if (connection.State != System.Data.ConnectionState.Open)
+                    connection.Open();
 
-                sqlDa.Fill(ds);
+                dataAdapter.Fill(ds);
 
                 return ds;
             }
