@@ -7,6 +7,26 @@ namespace ValidationAttributeLib
     /// 檢核本日期是否大於等於指定欄位的日期。
     /// 通常用於檢核結束日期是否大於等於開始日期。
     /// </summary>
+    /// <example>
+    /// <code language="cs"><![CDATA[
+    /// [Display(Name = "開始時間")]
+    /// [DisplayFormat(ApplyFormatInEditMode = true,
+    ///     ConvertEmptyStringToNull = true,
+    ///     DataFormatString = "{0:yyyy-MM-dd HH:mm:ss}",
+    ///     HtmlEncode = true,
+    ///     NullDisplayText = "")]
+    /// public object BeginDate { get; set; }
+    ///     
+    /// [Display(Name = "結束時間")]
+    /// [DisplayFormat(ApplyFormatInEditMode = true,
+    ///     ConvertEmptyStringToNull = true,
+    ///     DataFormatString = "{0:yyyy-MM-dd HH:mm:ss}",
+    ///     HtmlEncode = true,
+    ///     NullDisplayText = "")]
+    /// [ValidationAttributeLib.ValidateDateRange("BeginDate")]
+    /// public object EndDate { get; set; }
+    /// ]]></code>
+    /// </example>
     public class ValidateDateRange : ValidationAttribute
     {
         public string BeginDatePropertyName { get; set; }
