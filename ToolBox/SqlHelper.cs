@@ -13,7 +13,7 @@ namespace ToolBox
         /// <param name="commandText"></param>
         /// <param name="commandType"></param>
         /// <param name="parameters"></param>
-        /// <returns></returns>
+        /// <returns>The number of rows affected.</returns>
         public static Int32 ExecuteNonQuery(
             string connectionString,
             string commandText,
