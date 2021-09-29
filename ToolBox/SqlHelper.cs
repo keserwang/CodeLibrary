@@ -98,14 +98,34 @@ namespace ToolBox
         {
             DataTable dt = new DataTable();
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            using (SqlDataAdapter dataAdapter = new SqlDataAdapter(commandText, connection))
+            using (SqlConnection dbConnection = new SqlConnection(connectionString))
+            using (SqlDataAdapter dataAdapter = new SqlDataAdapter(commandText, dbConnection))
             {
                 dataAdapter.SelectCommand.CommandType = commandType;
                 dataAdapter.SelectCommand.Parameters.AddRange(parameters);
 
-                if (connection.State != System.Data.ConnectionState.Open)
-                    connection.Open();
+                if (dbConnection.State != System.Data.ConnectionState.Open)
+                    dbConnection.Open();
+
+                dataAdapter.Fill(dt);
+
+                return dt;
+            }
+        }
+
+        public static DataTable Select(
+            string connectionString,
+            SqlCommand sqlCommand)
+        {
+            DataTable dt = new DataTable();
+
+            using (SqlConnection dbConnection = new SqlConnection(connectionString))
+            {
+                sqlCommand.Connection = dbConnection;
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(sqlCommand);
+
+                if (dbConnection.State != System.Data.ConnectionState.Open)
+                    dbConnection.Open();
 
                 dataAdapter.Fill(dt);
 
