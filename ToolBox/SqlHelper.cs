@@ -12,24 +12,24 @@ namespace ToolBox
         /// <param name="connectionString"></param>
         /// <param name="commandText"></param>
         /// <param name="commandType"></param>
-        /// <param name="parameters"></param>
+        /// <param name="dbParameters"></param>
         /// <returns>The number of rows affected.</returns>
         public static Int32 ExecuteNonQuery(
             string connectionString,
             string commandText,
             CommandType commandType = CommandType.Text,
-            params SqlParameter[] parameters)
+            params SqlParameter[] dbParameters)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            using (SqlCommand command = new SqlCommand(commandText, connection))
+            using (SqlConnection dbConnection = new SqlConnection(connectionString))
+            using (SqlCommand dbCommand = new SqlCommand(commandText, dbConnection))
             {
-                command.CommandType = commandType;
-                command.Parameters.AddRange(parameters);
+                dbCommand.CommandType = commandType;
+                dbCommand.Parameters.AddRange(dbParameters);
 
-                if (connection.State != System.Data.ConnectionState.Open)
-                    connection.Open();
+                if (dbConnection.State != System.Data.ConnectionState.Open)
+                    dbConnection.Open();
 
-                return command.ExecuteNonQuery();
+                return dbCommand.ExecuteNonQuery();
             }
         }
 
@@ -40,24 +40,24 @@ namespace ToolBox
         /// <param name="connectionString"></param>
         /// <param name="commandText"></param>
         /// <param name="commandType"></param>
-        /// <param name="parameters"></param>
+        /// <param name="dbParameters"></param>
         /// <returns></returns>
         public static Object ExecuteScalar(
             string connectionString,
             string commandText,
             CommandType commandType = CommandType.Text,
-            params SqlParameter[] parameters)
+            params SqlParameter[] dbParameters)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            using (SqlCommand command = new SqlCommand(commandText, connection))
+            using (SqlConnection dbConnection = new SqlConnection(connectionString))
+            using (SqlCommand dbCommand = new SqlCommand(commandText, dbConnection))
             {
-                command.CommandType = commandType;
-                command.Parameters.AddRange(parameters);
+                dbCommand.CommandType = commandType;
+                dbCommand.Parameters.AddRange(dbParameters);
 
-                if (connection.State != System.Data.ConnectionState.Open)
-                    connection.Open();
+                if (dbConnection.State != System.Data.ConnectionState.Open)
+                    dbConnection.Open();
 
-                return command.ExecuteScalar();
+                return dbCommand.ExecuteScalar();
             }
         }
 
@@ -68,25 +68,25 @@ namespace ToolBox
         /// <param name="connectionString"></param>
         /// <param name="commandText"></param>
         /// <param name="commandType"></param>
-        /// <param name="parameters"></param>
+        /// <param name="dbParameters"></param>
         /// <returns></returns>
         public static SqlDataReader ExecuteReader(
             string connectionString,
             string commandText,
             CommandType commandType = CommandType.Text,
-            params SqlParameter[] parameters)
+            params SqlParameter[] dbParameters)
         {
-            SqlConnection connection = new SqlConnection(connectionString);
-            using (SqlCommand command = new SqlCommand(commandText, connection))
+            SqlConnection dbConnection = new SqlConnection(connectionString);
+            using (SqlCommand dbCommand = new SqlCommand(commandText, dbConnection))
             {
-                command.CommandType = commandType;
-                command.Parameters.AddRange(parameters);
+                dbCommand.CommandType = commandType;
+                dbCommand.Parameters.AddRange(dbParameters);
 
-                if (connection.State != System.Data.ConnectionState.Open)
-                    connection.Open();
+                if (dbConnection.State != System.Data.ConnectionState.Open)
+                    dbConnection.Open();
 
                 // When using CommandBehavior.CloseConnection, the connection will be closed when the IDataReader is closed.  
-                return command.ExecuteReader(CommandBehavior.CloseConnection);
+                return dbCommand.ExecuteReader(CommandBehavior.CloseConnection);
             }
         }
 
@@ -94,7 +94,7 @@ namespace ToolBox
             string connectionString,
             string commandText,
             CommandType commandType = CommandType.Text,
-            params SqlParameter[] parameters)
+            params SqlParameter[] dbParameters)
         {
             DataTable dt = new DataTable();
 
@@ -102,7 +102,7 @@ namespace ToolBox
             using (SqlDataAdapter dataAdapter = new SqlDataAdapter(commandText, dbConnection))
             {
                 dataAdapter.SelectCommand.CommandType = commandType;
-                dataAdapter.SelectCommand.Parameters.AddRange(parameters);
+                dataAdapter.SelectCommand.Parameters.AddRange(dbParameters);
 
                 if (dbConnection.State != System.Data.ConnectionState.Open)
                     dbConnection.Open();
@@ -115,14 +115,14 @@ namespace ToolBox
 
         public static DataTable Select(
             string connectionString,
-            SqlCommand sqlCommand)
+            SqlCommand dbCommand)
         {
             DataTable dt = new DataTable();
 
             using (SqlConnection dbConnection = new SqlConnection(connectionString))
             {
-                sqlCommand.Connection = dbConnection;
-                SqlDataAdapter dataAdapter = new SqlDataAdapter(sqlCommand);
+                dbCommand.Connection = dbConnection;
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(dbCommand);
 
                 if (dbConnection.State != System.Data.ConnectionState.Open)
                     dbConnection.Open();
@@ -137,18 +137,18 @@ namespace ToolBox
             string connectionString,
             string commandText,
             CommandType commandType = CommandType.Text,
-            params SqlParameter[] parameters)
+            params SqlParameter[] dbParameters)
         {
             DataSet ds = new DataSet();
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            using (SqlDataAdapter dataAdapter = new SqlDataAdapter(commandText, connection))
+            using (SqlConnection dbConnection = new SqlConnection(connectionString))
+            using (SqlDataAdapter dataAdapter = new SqlDataAdapter(commandText, dbConnection))
             {
                 dataAdapter.SelectCommand.CommandType = commandType;
-                dataAdapter.SelectCommand.Parameters.AddRange(parameters);
+                dataAdapter.SelectCommand.Parameters.AddRange(dbParameters);
             
-                if (connection.State != System.Data.ConnectionState.Open)
-                    connection.Open();
+                if (dbConnection.State != System.Data.ConnectionState.Open)
+                    dbConnection.Open();
 
                 dataAdapter.Fill(ds);
 
