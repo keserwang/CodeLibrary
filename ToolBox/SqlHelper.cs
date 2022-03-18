@@ -26,7 +26,7 @@ namespace ToolBox
                 dbCommand.CommandType = commandType;
                 dbCommand.Parameters.AddRange(dbParameters);
 
-                if (dbConnection.State != System.Data.ConnectionState.Open)
+                if (dbConnection.State != ConnectionState.Open)
                     dbConnection.Open();
 
                 return dbCommand.ExecuteNonQuery();
@@ -54,7 +54,7 @@ namespace ToolBox
                 dbCommand.CommandType = commandType;
                 dbCommand.Parameters.AddRange(dbParameters);
 
-                if (dbConnection.State != System.Data.ConnectionState.Open)
+                if (dbConnection.State != ConnectionState.Open)
                     dbConnection.Open();
 
                 return dbCommand.ExecuteScalar();
@@ -82,7 +82,7 @@ namespace ToolBox
                 dbCommand.CommandType = commandType;
                 dbCommand.Parameters.AddRange(dbParameters);
 
-                if (dbConnection.State != System.Data.ConnectionState.Open)
+                if (dbConnection.State != ConnectionState.Open)
                     dbConnection.Open();
 
                 // When using CommandBehavior.CloseConnection, the connection will be closed when the IDataReader is closed.  
@@ -90,7 +90,7 @@ namespace ToolBox
             }
         }
 
-        public static DataTable Select(
+        public static DataTable ReadTable(
             string connectionString,
             string commandText,
             CommandType commandType = CommandType.Text,
@@ -104,7 +104,7 @@ namespace ToolBox
                 dataAdapter.SelectCommand.CommandType = commandType;
                 dataAdapter.SelectCommand.Parameters.AddRange(dbParameters);
 
-                if (dbConnection.State != System.Data.ConnectionState.Open)
+                if (dbConnection.State != ConnectionState.Open)
                     dbConnection.Open();
 
                 dataAdapter.Fill(dt);
@@ -113,7 +113,7 @@ namespace ToolBox
             }
         }
 
-        public static DataTable Select(
+        public static DataTable ReadTable(
             string connectionString,
             SqlCommand dbCommand)
         {
@@ -124,7 +124,7 @@ namespace ToolBox
                 dbCommand.Connection = dbConnection;
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(dbCommand);
 
-                if (dbConnection.State != System.Data.ConnectionState.Open)
+                if (dbConnection.State != ConnectionState.Open)
                     dbConnection.Open();
 
                 dataAdapter.Fill(dt);
@@ -133,7 +133,7 @@ namespace ToolBox
             }
         }
 
-        public static DataSet MultiSelect(
+        public static DataSet ReadSet(
             string connectionString,
             string commandText,
             CommandType commandType = CommandType.Text,
@@ -147,7 +147,7 @@ namespace ToolBox
                 dataAdapter.SelectCommand.CommandType = commandType;
                 dataAdapter.SelectCommand.Parameters.AddRange(dbParameters);
             
-                if (dbConnection.State != System.Data.ConnectionState.Open)
+                if (dbConnection.State != ConnectionState.Open)
                     dbConnection.Open();
 
                 dataAdapter.Fill(ds);
