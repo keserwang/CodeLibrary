@@ -99,17 +99,22 @@ namespace ToolBox
             DataTable dt = new DataTable();
 
             using (SqlConnection dbConnection = new SqlConnection(connectionString))
-            using (SqlDataAdapter dataAdapter = new SqlDataAdapter(commandText, dbConnection))
+            using (SqlCommand dbCommand = new SqlCommand())
             {
-                dataAdapter.SelectCommand.CommandType = commandType;
-                dataAdapter.SelectCommand.Parameters.AddRange(dbParameters);
+                dbCommand.Connection = dbConnection;
+                dbCommand.CommandType = commandType;
+                dbCommand.CommandText = commandText;
+                dbCommand.Parameters.AddRange(dbParameters);
 
-                if (dbConnection.State != ConnectionState.Open)
-                    dbConnection.Open();
+                using (SqlDataAdapter dataAdapter = new SqlDataAdapter(dbCommand))
+                {
+                    if (dbConnection.State != ConnectionState.Open)
+                        dbConnection.Open();
 
-                dataAdapter.Fill(dt);
+                    dataAdapter.Fill(dt);
 
-                return dt;
+                    return dt;
+                }
             }
         }
 
@@ -122,14 +127,16 @@ namespace ToolBox
             using (SqlConnection dbConnection = new SqlConnection(connectionString))
             {
                 dbCommand.Connection = dbConnection;
-                SqlDataAdapter dataAdapter = new SqlDataAdapter(dbCommand);
 
-                if (dbConnection.State != ConnectionState.Open)
-                    dbConnection.Open();
+                using (SqlDataAdapter dataAdapter = new SqlDataAdapter(dbCommand))
+                {
+                    if (dbConnection.State != ConnectionState.Open)
+                        dbConnection.Open();
 
-                dataAdapter.Fill(dt);
+                    dataAdapter.Fill(dt);
 
-                return dt;
+                    return dt;
+                }
             }
         }
 
